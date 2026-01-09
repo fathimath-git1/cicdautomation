@@ -11,72 +11,76 @@ function App() {
         <button onClick={() => setCount(count + 1)} style={styles.button}>
           Count is {count}
         </button>
-        <p style={styles.text}>Make your project beautiful and powerful 🚀</p>
+        <p style={styles.text}>Make your project beautiful and powerful</p>
       </div>
+
+      {/* Full-screen CSS reset */}
+      <style>
+        {`
+          html, body, #root {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+          }
+        `}
+      </style>
     </div>
   );
 }
 
 const styles = {
   container: {
-    minHeight: "100vh",
-    background: "#0f172a", // deep navy
+    height: "100vh",
+    width: "100vw",
+    background: "linear-gradient(120deg, #1e293b, #0f172a, #4c1d95)",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
     fontFamily: "Poppins, sans-serif",
-    padding: "20px",
+    position: "fixed",
+    top: 0,
+    left: 0,
+    overflow: "hidden",
   },
   name: {
-    fontSize: "55px",
-    fontWeight: "800",
-    background: "linear-gradient(to right, #f472b6, #a78bfa, #60a5fa)",
-    WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent",
-    textShadow: "0 0 30px rgba(236,72,153,0.5)",
-    marginBottom: "25px",
-    letterSpacing: "2px",
+    fontSize: "65px",
+    fontWeight: "900",
+    color: "white",
+    marginBottom: "30px",
+    textShadow: "0 0 20px #a78bfa, 0 0 40px #f472b6",
+    letterSpacing: "3px",
   },
   card: {
-    background: "rgba(255,255,255,0.1)",
-    backdropFilter: "blur(12px)",
-    padding: "28px",
-    borderRadius: "22px",
-    boxShadow: "0 0 40px rgba(167,139,250,0.3)",
-    width: "330px",
+    background: "rgba(255,255,255,0.08)",
+    backdropFilter: "blur(15px)",
+    padding: "32px",
+    borderRadius: "24px",
+    boxShadow: "0 0 50px rgba(167,139,250,0.25)",
+    width: "350px",
     textAlign: "center",
-    border: "1px solid rgba(255,255,255,0.2)",
+    border: "1px solid rgba(255,255,255,0.15)",
   },
   button: {
     width: "100%",
-    background: "#a78bfa", // soft violet
+    background: "#a78bfa",
     border: "none",
-    padding: "14px",
-    borderRadius: "14px",
-    fontSize: "24px",
+    padding: "16px",
+    borderRadius: "16px",
+    fontSize: "26px",
     fontWeight: "700",
     color: "#0f172a",
     cursor: "pointer",
+    boxShadow: "0 0 25px rgba(167,139,250,0.4)",
     transition: "0.3s",
-    boxShadow: "0 0 20px rgba(167,139,250,0.4)",
   },
   text: {
     color: "white",
-    marginTop: "16px",
-    fontSize: "17px",
-    opacity: "0.85",
+    marginTop: "18px",
+    fontSize: "18px",
+    opacity: "0.9",
   },
 };
-
-// Hover effect added globally
-const globalStyle = document.createElement("style");
-globalStyle.innerHTML = `
-  button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px #f472b6;
-  }
-`;
-document.head.appendChild(globalStyle);
 
 export default App;
