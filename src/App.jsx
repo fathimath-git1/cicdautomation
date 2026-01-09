@@ -1,42 +1,18 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <div style={styles.container}>
-      <div style={styles.logoBox}>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} style={styles.logo} alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} style={{ ...styles.logo, animation: "spin 6s linear infinite" }} alt="React logo" />
-        </a>
-      </div>
-
-      <h1 style={styles.title}>Anshida</h1>
+      <h1 style={styles.name}>FATHIMATH ANSHIDA V</h1>
 
       <div style={styles.card}>
         <button onClick={() => setCount(count + 1)} style={styles.button}>
           Count is {count}
         </button>
-
-        <p style={styles.text}>Edit <b>src/App.jsx</b> and save to test HMR ⚡</p>
+        <p style={styles.text}>Make your project beautiful and powerful 🚀</p>
       </div>
-
-      <p style={styles.footer}>Click on the logos to explore more 💜</p>
-
-      {/* CSS animation */}
-      <style>
-        {`
-        @keyframes spin {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-        `}
-      </style>
     </div>
   );
 }
@@ -44,7 +20,7 @@ function App() {
 const styles = {
   container: {
     minHeight: "100vh",
-    background: "linear-gradient(135deg, #6a11cb, #2575fc)",
+    background: "#0f172a", // deep navy
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -52,59 +28,55 @@ const styles = {
     fontFamily: "Poppins, sans-serif",
     padding: "20px",
   },
-  logoBox: {
-    display: "flex",
-    gap: "40px",
-    marginBottom: "20px",
-  },
-  logo: {
-    width: "80px",
-    filter: "drop-shadow(0 0 10px white)",
-    transition: "0.3s",
-    cursor: "pointer",
-  },
-  title: {
-    fontSize: "50px",
-    color: "white",
-    fontWeight: "bold",
-    textShadow: "0 0 20px pink",
-    marginBottom: "10px",
+  name: {
+    fontSize: "55px",
+    fontWeight: "800",
+    background: "linear-gradient(to right, #f472b6, #a78bfa, #60a5fa)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+    textShadow: "0 0 30px rgba(236,72,153,0.5)",
+    marginBottom: "25px",
+    letterSpacing: "2px",
   },
   card: {
-    background: "rgba(255,255,255,0.2)",
-    backdropFilter: "blur(10px)",
-    padding: "25px",
-    borderRadius: "20px",
-    boxShadow: "0 0 25px rgba(0,0,0,0.3)",
-    width: "320px",
+    background: "rgba(255,255,255,0.1)",
+    backdropFilter: "blur(12px)",
+    padding: "28px",
+    borderRadius: "22px",
+    boxShadow: "0 0 40px rgba(167,139,250,0.3)",
+    width: "330px",
     textAlign: "center",
-    border: "1px solid rgba(255,255,255,0.3)",
+    border: "1px solid rgba(255,255,255,0.2)",
   },
   button: {
-    background: "white",
+    width: "100%",
+    background: "#a78bfa", // soft violet
     border: "none",
-    padding: "12px 22px",
-    borderRadius: "12px",
-    fontSize: "22px",
-    fontWeight: "600",
-    color: "#6a11cb",
-    boxShadow: "0 0 10px white",
-    transition: "0.3s",
+    padding: "14px",
+    borderRadius: "14px",
+    fontSize: "24px",
+    fontWeight: "700",
+    color: "#0f172a",
     cursor: "pointer",
+    transition: "0.3s",
+    boxShadow: "0 0 20px rgba(167,139,250,0.4)",
   },
   text: {
     color: "white",
-    marginTop: "15px",
-    fontSize: "16px",
-  },
-  footer: {
-    marginTop: "18px",
-    fontSize: "18px",
-    color: "white",
-    opacity: "0.9",
+    marginTop: "16px",
+    fontSize: "17px",
+    opacity: "0.85",
   },
 };
 
+// Hover effect added globally
+const globalStyle = document.createElement("style");
+globalStyle.innerHTML = `
+  button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #f472b6;
+  }
+`;
+document.head.appendChild(globalStyle);
+
 export default App;
-
-
