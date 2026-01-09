@@ -1,75 +1,110 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
-import { motion } from "framer-motion";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-purple-500 via-pink-400 to-indigo-600 p-6">
-      
-      {/* Animated Logo Section */}
-      <motion.div 
-        className="flex gap-8 mb-6"
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <motion.a href="https://vite.dev" target="_blank" whileHover={{ scale: 1.2, rotate: 10 }}>
-          <img src={viteLogo} className="w-20 drop-shadow-lg" alt="Vite logo" />
-        </motion.a>
+    <div style={styles.container}>
+      <div style={styles.logoBox}>
+        <a href="https://vite.dev" target="_blank">
+          <img src={viteLogo} style={styles.logo} alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} style={{ ...styles.logo, animation: "spin 6s linear infinite" }} alt="React logo" />
+        </a>
+      </div>
 
-        <motion.a href="https://react.dev" target="_blank" whileHover={{ scale: 1.2, rotate: -10 }}>
-          <img src={reactLogo} className="w-20 drop-shadow-lg" alt="React logo" />
-        </motion.a>
-      </motion.div>
+      <h1 style={styles.title}>Anshida</h1>
 
-      {/* Name Header */}
-      <motion.h1 
-        className="text-5xl font-extrabold text-white mb-4 drop-shadow-xl tracking-wide"
-        initial={{ scale: 0.5 }}
-        animate={{ scale: 1 }}
-        transition={{ type: "spring", stiffness: 120 }}
-      >
-        Anshida ✨
-      </motion.h1>
+      <div style={styles.card}>
+        <button onClick={() => setCount(count + 1)} style={styles.button}>
+          Count is {count}
+        </button>
 
-      {/* Card Section */}
-      <motion.div 
-        className="bg-white/20 backdrop-blur-lg rounded-2xl shadow-2xl p-8 w-full max-w-md border border-white/30"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.3, duration: 0.5 }}
-      >
-        
-        {/* Count Button */}
-        <motion.button
-          className="w-full py-3 text-xl font-semibold text-purple-700 bg-white rounded-xl shadow-lg"
-          onClick={() => setCount(count + 1)}
-          whileTap={{ scale: 0.9 }}
-          whileHover={{ scale: 1.05 }}
-        >
-          Count is {count} 🚀
-        </motion.button>
+        <p style={styles.text}>Edit <b>src/App.jsx</b> and save to test HMR ⚡</p>
+      </div>
 
-        {/* Instruction Text */}
-        <p className="text-center text-white mt-5 font-medium">
-          Edit <span className="text-yellow-200 bg-black/30 px-2 py-1 rounded"><code>src/App.jsx</code></span> and save to test HMR
-        </p>
-      </motion.div>
+      <p style={styles.footer}>Click on the logos to explore more 💜</p>
 
-      {/* Footer Text */}
-      <motion.p 
-        className="text-white/90 mt-6 text-lg text-center max-w-lg font-light"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5 }}
-      >
-        Click the Vite and React logos to learn more 💡
-      </motion.p>
+      {/* CSS animation */}
+      <style>
+        {`
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        `}
+      </style>
     </div>
   );
 }
 
+const styles = {
+  container: {
+    minHeight: "100vh",
+    background: "linear-gradient(135deg, #6a11cb, #2575fc)",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    fontFamily: "Poppins, sans-serif",
+    padding: "20px",
+  },
+  logoBox: {
+    display: "flex",
+    gap: "40px",
+    marginBottom: "20px",
+  },
+  logo: {
+    width: "80px",
+    filter: "drop-shadow(0 0 10px white)",
+    transition: "0.3s",
+    cursor: "pointer",
+  },
+  title: {
+    fontSize: "50px",
+    color: "white",
+    fontWeight: "bold",
+    textShadow: "0 0 20px pink",
+    marginBottom: "10px",
+  },
+  card: {
+    background: "rgba(255,255,255,0.2)",
+    backdropFilter: "blur(10px)",
+    padding: "25px",
+    borderRadius: "20px",
+    boxShadow: "0 0 25px rgba(0,0,0,0.3)",
+    width: "320px",
+    textAlign: "center",
+    border: "1px solid rgba(255,255,255,0.3)",
+  },
+  button: {
+    background: "white",
+    border: "none",
+    padding: "12px 22px",
+    borderRadius: "12px",
+    fontSize: "22px",
+    fontWeight: "600",
+    color: "#6a11cb",
+    boxShadow: "0 0 10px white",
+    transition: "0.3s",
+    cursor: "pointer",
+  },
+  text: {
+    color: "white",
+    marginTop: "15px",
+    fontSize: "16px",
+  },
+  footer: {
+    marginTop: "18px",
+    fontSize: "18px",
+    color: "white",
+    opacity: "0.9",
+  },
+};
+
 export default App;
+
+
